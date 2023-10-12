@@ -10,7 +10,7 @@ pip install flask-login
 pip install flask-bcrypt
 pip install flask-wtf
 pip install email-validator
-pip install werkzeug
+pip install werkzeug==2.3
 ````
 
 
