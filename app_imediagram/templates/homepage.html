@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+        {% block titulo %}
+        Login
+        {% endblock %}
+
+    </title>
+    <link rel="stylesheet" type="text/css" href="static/css/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="static/css/login_cadastro.css">
+</head>
+<body>
+
+    <nav class="cabecalho">
+      <h1 class="logo">Imediagram</h1>
+      <div class="opcoes" id="div-opcoes">
+        <ul class="list-opcoes">
+          <li class="perfil-item">
+            <a class="perfil-link" href="/">About</a>
+          </li>
+          <li class="feed-item">
+            <a class="feed-link" href="/">Business</a>
+          </li>
+          <li class="sair-item">
+            <a class="sair-link" href="/">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="nav-inputs">
+      <div class="list-input" id="div-inputs">
+        <h1 class="title">Bem Vindo(a) ao Imediagram</h1>
+
+                <form method="POST">
+                    {{ form.csrf_token }}
+                    
+                    {{ form.email.label() }}
+                    <br>
+                    {{ form.email() }}
+                    <br>
+
+                    {{ form.senha.label() }}
+                    <br>
+                    {{ form.senha() }}
+                    <br>
+                    {{ form.botao_confirmacao() }}
+                </form>
+
+        <p>Ainda não tem conta? <a href="/criarconta">Clique aqui</a></p>
+      </div>
+    </nav>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.cabecalho{
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	padding: 20px 0;
+	background-color: #03aafe;
+}
+
+.cabecalho a{
+	font-size: 22px;
+	text-decoration: none;
+}
+
+.logo{text-transform: uppercase;}
+
+.list-opcoes li{
+	display: inline-block;
+	margin: 0 20px;
+}
+
+.list-opcoes li a{
+	padding: 10px 15px;
+	border-radius: 15px;
+	color: white;
+}
+
+.list-opcoes li a:hover{
+	background-color: rgba(100, 100, 100, 0.5);
+}

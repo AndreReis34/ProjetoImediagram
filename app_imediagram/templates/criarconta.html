@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block titulo %}
+            Criar conta
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="static/css/cabecalho.css">
+    <link rel="stylesheet" type="text/css" href="static/css/login_cadastro.css">
+</head>
+<body>
+
+
+    <nav class="cabecalho">
+      <h1 class="logo">Imediagram</h1>
+      <div class="opcoes" id="div-opcoes">
+        <ul class="list-opcoes">
+          <li class="perfil-item">
+            <a class="perfil-link" href="/criarconta">About</a>
+          </li>
+          <li class="feed-item">
+            <a class="feed-link" href="/criarconta">Business</a>
+          </li>
+          <li class="sair-item">
+            <a class="sair-link" href="/criarconta">Blog</a>
+          </li>
+        </ul>
+      </div>
+    </nav> 
+
+    <nav class="nav-inputs">
+      <div class="list-input" id="div-inputs">
+        <h1 class="title">Faça o seu cadastro!</h1>
+
+            <form method="POST">    
+                {{ form.csrf_token }}
+
+                {{ form.username.label() }}
+                <br>
+                {{ form.username() }}
+                <br>
+                {{ form.email.label() }}
+                <br>
+                {{ form.email() }}
+                <br>
+                {{ form.senha.label() }}
+                <br>
+                {{ form.senha() }}
+                <br>
+                {{ form.confirmacao_senha.label() }}
+                <br>
+                {{ form.confirmacao_senha() }}
+
+                {{ form.botao_confirmacao() }}
+            </form>
+
+        <p>Ainda não tem conta? <a href="/">Clique aqui</a></p>
+      </div>
+    </nav>  
+        
+
+</body>
+</html>
+ 
+
+

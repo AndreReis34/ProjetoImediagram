@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil {{ usuario }}</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/cabecalho.css">
+    <style type="text/css">
+        body{
+            font-family: Arial;
+        }
+
+        .fotos li{
+            display: inline-block;
+        }
+
+        .perfil-info{
+            height: 50px;
+            width: 200px;
+            margin-left: 500px;
+        }
+
+        .form-foto{
+            display: inline-block;
+            height: 60px;
+            width: 300px;
+            margin-left: 460px;
+        }
+
+        .form-foto label{
+            margin: 120px;
+        }
+
+        .form-foto input{
+            background-color: lightblue;
+            height: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <nav class="cabecalho">
+      <h1 class="logo">Imediagram</h1>
+      <div class="opcoes" id="div-opcoes">
+        <ul class="list-opcoes">
+          <li class="perfil-item">
+            <a class="perfil-link" href="/perfil/{{ current_user.id }}">Perfil</a>
+          </li>
+          <li class="feed-item">
+            <a class="feed-link" href="/feed">Feed</a>
+          </li>
+          <li class="sair-item">
+            <a class="sair-link" href="/logout">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <h1 class="perfil-info">Perfil de {{ usuario.username }}</h1>
+
+    <div class="perfil-info">
+        <p><strong>Nome de Usuário: {{ usuario.username }}</strong></p>
+        <p><strong>Email: {{ usuario.email }}</strong></p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="form-foto">
+        {{ form.csrf_token }}
+        {{ form.foto.label() }}
+        <input class="input-foto" type="file" name="{{ form.foto.name }}" id="{{ form.foto.id }}">
+        {{ form.botao_confirmacao() }}
+    </form>
+
+        <ul class="fotos">
+            {% for foto in current_user.fotos %}
+                {% if current_user.id == usuario.id %}
+                <li>
+                    <img src="{{ url_for('uploaded_file', filename=foto.imagem) }}" alt="{{ foto.imagem }}" width="300" height="200">
+                    <p>Data de Criação: {{ foto.data_criacao }}</p>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+</body>
+</html>
+
+    

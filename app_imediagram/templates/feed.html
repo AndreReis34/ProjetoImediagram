@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feed</title>
+    <link rel="stylesheet" type="text/css" href="static/css/cabecalho.css">
+    <style type="text/css">
+        body{
+            font-family: Arial;
+        }
+        .up-foto li{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="cabecalho">
+      <h1 class="logo">Imediagram</h1>
+      <div class="opcoes" id="div-opcoes">
+        <ul class="list-opcoes">
+          <li class="perfil-item">
+            <a class="perfil-link" href="/perfil/{{ current_user.id }}">Perfil</a>
+          </li>
+          <li class="feed-item">
+            <a class="feed-link" href="/feed">Feed</a>
+          </li>
+          <li class="sair-item">
+            <a class="sair-link" href="/logout">Sair</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 class="title">Feed de Fotos</h1>
+
+    <ul class="up-foto">
+        {% for foto in fotos %}
+            <li class="foto">
+                <img src="{{ url_for('uploaded_file', filename=foto.imagem) }}" alt="{{ foto.imagem }}" width="300" height="200">
+                <p>Data de Criação: {{ foto.data_criacao }}</p>
+                <br>
+                <p>Criador:<strong> Usuário {{ foto.id_usuario }}</strong></p>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
