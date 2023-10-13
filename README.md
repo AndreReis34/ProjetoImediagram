@@ -20,6 +20,9 @@ pip install werkzeug==2.3
    - `'/criarconta', cadastrar`: Criar a sua propria conta no site.
    - `'/perfil', perfil`: onde você pode ver suas informações e postar fotos.
    - `'/feed', feed`: Onde você pode ver as fotos psotadas por outras pessoas.
-   - `'/logout', logout`: você sai do site. 
+   - `'/logout', logout`: você sai do site.
+   - No site já terão 2 contas que são:
+       -`email: andre@gmail.com , senha: 7890`
+       -`email: ia@gmail.com, senha: 0987` 
 
 
